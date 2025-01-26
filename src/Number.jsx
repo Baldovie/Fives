@@ -66,8 +66,10 @@ const useDraggable = ({ onDrag = id } = {}) => {
       setPressed(true);
     };
     elem.addEventListener('mousedown', handleMouseDown);
+    elem.addEventListener('touchstart', handleMouseDown);
     unsubscribe.current = () => {
       elem.removeEventListener('mousedown', handleMouseDown);
+      elem.removeEventListener('touchstart', handleMouseDown);
     };
   }, []);
 
