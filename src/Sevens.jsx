@@ -10,32 +10,6 @@ function Sevens() {
   return (
     <>
       <div id="board-background" className="board-background">
-        <Number
-          id="numberTwo"
-          style="number-tile two"
-          numberStyle="number-value white"
-          value="2"
-        />
-
-        <Number
-          id="numberThree"
-          style="number-tile three"
-          numberStyle="number-value white"
-          value="3"
-        />
-        <Number
-          id="numberFive"
-          style="number-tile five"
-          numberStyle="number-value"
-          value="5"
-        />
-        <Number
-          id="numberTen"
-          style="number-tile five"
-          numberStyle="number-value"
-          value="10"
-        />
-
         <div id="board" className="board">
           <div id="cell1" className="cell"></div>
           <div id="cell2" className="cell"></div>
@@ -55,6 +29,11 @@ function Sevens() {
           <div id="cell16" className="cell"></div>
         </div>
       </div>
+
+      <Number id="numberTwo" style="number-tile two" value="2" />
+      <Number id="numberThree" style="number-tile three" value="3" />
+      <Number id="numberFive" style="number-tile five" value="5" />
+      <Number id="numberTen" style="number-tile five" value="10" />
     </>
   );
 }
