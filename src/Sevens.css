@@ -4,18 +4,38 @@
   padding: 2rem;
   text-align: center;
   background-color: rgb(243, 243, 243);
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
 .board-background {
-  /* display: inline-block; */
   width: 330px;
   height: 410px;
   border: solid 1px #bcd9da;
   background-color: #bcd9da;
   border-radius: 6px;
   margin: 4px;
-  z-index: -1;
-  /* position: static; */
+  position: static;
 }
 
 .board {
@@ -28,12 +48,11 @@
   background-color: #cce4de;
   border-radius: 6px;
   margin: 4px;
-  position: sticky;
-  z-index: 0;
+  position: static;
 }
 
 .cell {
-  /* display: flex; */
+  display: inline-flex;
   padding-top: 15px;
   width: 64px;
   height: 64px;
@@ -41,44 +60,35 @@
   background-color: #bcd9da;
   border-radius: 6px;
   margin: 4px;
-  /* position: static; */
-  z-index: 1;
+  position: static;
 }
 
 .number-tile {
   border-radius: 6px;
   margin: 4px;
-  z-index: 10;
-  /* position: relative; */
   width: 64px;
   height: 75px;
-  /* display: flex; */
-}
-
-.number-tile.five {
-  background-color: #ffffff;
-  border: solid 1px #fec969;
-  border-bottom: solid 9px #fec969;
+  font-size: xxx-large;
+  color: black;
+  z-index: 0;
 }
 
 .number-tile.two {
+  color: white;
   background-color: #6bccfd;
   border: solid 1px #6bccfd;
   border-bottom: solid 9px #5ba8f4;
 }
 
 .number-tile.three {
+  color: white;
   background-color: #fe6982;
   border: solid 1px #fe6982;
   border-bottom: solid 9px #cc517b;
 }
 
-.number-value {
-  font-size: xxx-large;
-  margin: auto;
-  color: black;
-}
-
-.number-value.white {
-  color: white;
+.number-tile.five {
+  background-color: #ffffff;
+  border: solid 1px #fec969;
+  border-bottom: solid 9px #fec969;
 }
