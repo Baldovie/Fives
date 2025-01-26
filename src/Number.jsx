@@ -114,10 +114,14 @@ const useDraggable = ({ onDrag = id } = {}) => {
     // dragging it forever
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('touchstart', handleMouseMove);
+    document.addEventListener('touchend', handleMouseUp);
     return () => {
       handleMouseMove.cancel();
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('touchstart', handleMouseMove);
+      document.removeEventListener('touchend', handleMouseUp);
     };
     // if `onDrag` wasn't defined with `useCallback`, we'd have to
     // resubscribe to 2 DOM events here, not to say it would mess
