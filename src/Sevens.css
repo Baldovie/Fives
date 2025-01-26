@@ -1,0 +1,84 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgb(243, 243, 243);
+}
+
+.board-background {
+  /* display: inline-block; */
+  width: 330px;
+  height: 410px;
+  border: solid 1px #bcd9da;
+  background-color: #bcd9da;
+  border-radius: 6px;
+  margin: 4px;
+  z-index: -1;
+  /* position: static; */
+}
+
+.board {
+  width: 320px;
+  height: 380px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  border: solid 1px #cce4de;
+  background-color: #cce4de;
+  border-radius: 6px;
+  margin: 4px;
+  position: sticky;
+  z-index: 0;
+}
+
+.cell {
+  /* display: flex; */
+  padding-top: 15px;
+  width: 64px;
+  height: 64px;
+  border: solid 1px #bcd9da;
+  background-color: #bcd9da;
+  border-radius: 6px;
+  margin: 4px;
+  /* position: static; */
+  z-index: 1;
+}
+
+.number-tile {
+  border-radius: 6px;
+  margin: 4px;
+  z-index: 10;
+  /* position: relative; */
+  width: 64px;
+  height: 75px;
+  /* display: flex; */
+}
+
+.number-tile.five {
+  background-color: #ffffff;
+  border: solid 1px #fec969;
+  border-bottom: solid 9px #fec969;
+}
+
+.number-tile.two {
+  background-color: #6bccfd;
+  border: solid 1px #6bccfd;
+  border-bottom: solid 9px #5ba8f4;
+}
+
+.number-tile.three {
+  background-color: #fe6982;
+  border: solid 1px #fe6982;
+  border-bottom: solid 9px #cc517b;
+}
+
+.number-value {
+  font-size: xxx-large;
+  margin: auto;
+  color: black;
+}
+
+.number-value.white {
+  color: white;
+}
