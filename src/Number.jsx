@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import './Sevens.css';
 
+const zIncrement = [0];
+
 /// throttle.ts
 export const throttle = (f) => {
   let token = null,
@@ -59,6 +61,8 @@ const useDraggable = ({ onDrag = id } = {}) => {
       // don't forget to disable text selection during drag and drop
       // operations
       e.target.style.userSelect = 'none';
+      e.target.style.position = 'relative';
+      e.target.style.zIndex = getUpdatedIndex();
       setPressed(true);
     };
     elem.addEventListener('mousedown', handleMouseDown);
@@ -101,6 +105,9 @@ const useDraggable = ({ onDrag = id } = {}) => {
     });
     const handleMouseUp = (e) => {
       e.target.style.userSelect = 'auto';
+      e.target.style.position = 'relative';
+      // e.target.style.zIndex = null;
+      // e.target.siblings('div').css('z-index', 0);
       setPressed(false);
     };
     // subscribe to mousemove and mouseup on document, otherwise you
@@ -151,10 +158,19 @@ const DraggableComponent = (props) => {
 
   return (
     <div className={props.style} ref={ref}>
-      <div className={props.numberStyle}>{props.value}</div>
+      {/* <div className={props.numberStyle}>{props.value}</div> */}
+      {props.value}
     </div>
   );
 };
+
+function getUpdatedIndex(e) {
+  zIncrement[0] = zIncrement[0] + 1;
+
+  var z = zIncrement[0];
+
+  return z + 0;
+}
 
 // please, don't `export default`! it messes up autocompletion,
 // usage search and regular text search in IDE!
