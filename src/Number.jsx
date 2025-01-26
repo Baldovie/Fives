@@ -62,7 +62,7 @@ const useDraggable = ({ onDrag = id } = {}) => {
       // operations
       e.target.style.userSelect = 'none';
       e.target.style.position = 'relative';
-      e.target.style.zIndex = getUpdatedIndex();
+      e.target.style.zIndex = 1;
       setPressed(true);
     };
     elem.addEventListener('mousedown', handleMouseDown);
@@ -106,8 +106,7 @@ const useDraggable = ({ onDrag = id } = {}) => {
     const handleMouseUp = (e) => {
       e.target.style.userSelect = 'auto';
       e.target.style.position = 'relative';
-      // e.target.style.zIndex = null;
-      // e.target.siblings('div').css('z-index', 0);
+      e.target.style.zIndex = 0;
       setPressed(false);
     };
     // subscribe to mousemove and mouseup on document, otherwise you
@@ -169,7 +168,7 @@ function getUpdatedIndex(e) {
 
   var z = zIncrement[0];
 
-  return z + 0;
+  return 1;
 }
 
 // please, don't `export default`! it messes up autocompletion,
