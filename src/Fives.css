@@ -1,0 +1,261 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgb(243, 243, 243);
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.board {
+  width: 320px;
+  height: 385px;
+  padding-top: 10px;
+  display: inline-block;
+  border: solid 7px #bcd9da;
+  background-color: #cce4de;
+  border-radius: 6px;
+  margin: 4px;
+  position: sticky;
+}
+
+.cell {
+  display: inline-flex;
+  padding-top: 15px;
+  width: 64px;
+  height: 64px;
+  border: solid 1px #bcd9da;
+  background-color: #bcd9da;
+  border-radius: 6px;
+  margin: 4px;
+  position: sticky;
+}
+
+/* .cell.one {
+  transform: translate(0px, 0px);
+
+  boundingRect: 
+Number.jsx:73 bottom: 179.9140625
+Number.jsx:74 left: 90.5
+Number.jsx:75 right: 156.5
+Number.jsx:76 top: 94.9140625
+Number.jsx:77 x: 90.5
+Number.jsx:78 y: 94.9140625
+}
+
+.cell.two {
+  transform: translate(80px, 0px);
+
+  boundingRect: 
+Number.jsx:73 bottom: 179.9140625
+Number.jsx:74 left: 164.5
+Number.jsx:75 right: 230.5
+Number.jsx:76 top: 94.9140625
+Number.jsx:77 x: 164.5
+Number.jsx:78 y: 94.9140625
+}
+
+.cell.three {
+  transform: translate(160px, 0px);
+  boundingRect: 
+Number.jsx:73 bottom: 179.9140625
+Number.jsx:74 left: 237.5
+Number.jsx:75 right: 303.5
+Number.jsx:76 top: 94.9140625
+Number.jsx:77 x: 237.5
+Number.jsx:78 y: 94.9140625
+}
+
+.cell.four {
+  transform: translate(240px, 0px);
+  boundingRect: 
+Number.jsx:73 bottom: 179.9140625
+Number.jsx:74 left: 312.5
+Number.jsx:75 right: 378.5
+Number.jsx:76 top: 94.9140625
+Number.jsx:77 x: 312.5
+Number.jsx:78 y: 94.9140625
+}
+
+.cell.five {
+  transform: translate(0px, 100px);
+  boundingRect: 
+Number.jsx:73 bottom: 274.9140625
+Number.jsx:74 left: 90.5
+Number.jsx:75 right: 156.5
+Number.jsx:76 top: 189.9140625
+Number.jsx:77 x: 90.5
+Number.jsx:78 y: 189.9140625
+}
+
+.cell.six {
+  transform: translate(80px, 100px);
+  boundingRect: 
+Number.jsx:73 bottom: 273.9140625
+Number.jsx:74 left: 164.5
+Number.jsx:75 right: 230.5
+Number.jsx:76 top: 188.9140625
+Number.jsx:77 x: 164.5
+Number.jsx:78 y: 188.9140625
+}
+
+.cell.seven {
+  transform: translate(160px, 100px);
+  boundingRect: 
+Number.jsx:73 bottom: 273.9140625
+Number.jsx:74 left: 237.5
+Number.jsx:75 right: 303.5
+Number.jsx:76 top: 188.9140625
+Number.jsx:77 x: 237.5
+Number.jsx:78 y: 188.9140625
+}
+
+.cell.eight {
+  transform: translate(240px, 100px);
+  boundingRect: 
+Number.jsx:73 bottom: 272.9140625
+Number.jsx:74 left: 310.5
+Number.jsx:75 right: 376.5
+Number.jsx:76 top: 187.9140625
+Number.jsx:77 x: 310.5
+Number.jsx:78 y: 187.9140625
+}
+
+.cell.nine {
+  transform: translate(0px, 200px);
+  boundingRect: 
+Number.jsx:73 bottom: 253.9140625
+Number.jsx:74 left: 91.5
+Number.jsx:75 right: 157.5
+Number.jsx:76 top: 168.9140625
+Number.jsx:77 x: 91.5
+Number.jsx:78 y: 168.9140625
+}
+
+.cell.ten {
+  transform: translate(80px, 200px);
+  boundingRect: 
+Number.jsx:73 bottom: 253.9140625
+Number.jsx:74 left: 161.5
+Number.jsx:75 right: 227.5
+Number.jsx:76 top: 168.9140625
+Number.jsx:77 x: 161.5
+Number.jsx:78 y: 168.9140625
+}
+
+.cell.eleven {
+  transform: translate(160px, 200px);
+  boundingRect: 
+Number.jsx:73 bottom: 255.9140625
+Number.jsx:74 left: 238.5
+Number.jsx:75 right: 304.5
+Number.jsx:76 top: 170.9140625
+Number.jsx:77 x: 238.5
+Number.jsx:78 y: 170.9140625
+}
+
+.cell.twelve {
+  transform: translate(240px, 200px);
+  boundingRect: 
+Number.jsx:73 bottom: 254.9140625
+Number.jsx:74 left: 313.5
+Number.jsx:75 right: 379.5
+Number.jsx:76 top: 169.9140625
+Number.jsx:77 x: 313.5
+Number.jsx:78 y: 169.9140625
+}
+
+.cell.thirteen {
+  boundingRect: 
+Number.jsx:73 bottom: 313.9140625
+Number.jsx:74 left: 90.5
+Number.jsx:75 right: 156.5
+Number.jsx:76 top: 228.9140625
+Number.jsx:77 x: 90.5
+Number.jsx:78 y: 228.9140625
+  transform: translate(0px, 300px);
+}
+
+.cell.fourteen {
+  transform: translate(80px, 300px);
+  boundingRect: 
+Number.jsx:73 bottom: 313.9140625
+Number.jsx:74 left: 164.5
+Number.jsx:75 right: 230.5
+Number.jsx:76 top: 228.9140625
+Number.jsx:77 x: 164.5
+Number.jsx:78 y: 228.9140625
+}
+
+.cell.fifteen {
+  transform: translate(160px, 300px);
+  boundingRect: 
+Number.jsx:73 bottom: 313.9140625
+Number.jsx:74 left: 239.5
+Number.jsx:75 right: 305.5
+Number.jsx:76 top: 228.9140625
+Number.jsx:77 x: 239.5
+Number.jsx:78 y: 228.9140625
+}
+
+.cell.sixteen {
+  transform: translate(240px, 300px);
+  boundingRect: 
+Number.jsx:73 bottom: 176.9140625
+Number.jsx:74 left: 312.5
+Number.jsx:75 right: 378.5
+Number.jsx:76 top: 91.9140625
+Number.jsx:77 x: 312.5
+Number.jsx:78 y: 91.9140625
+} */
+
+.number-tile {
+  border-radius: 6px;
+  margin: 4px;
+  width: 64px;
+  height: 75px;
+  font-size: xxx-large;
+  color: black;
+  z-index: 0;
+}
+
+.number-tile.two {
+  color: white;
+  background-color: #6bccfd;
+  border: solid 1px #6bccfd;
+  border-bottom: solid 9px #5ba8f4;
+}
+
+.number-tile.three {
+  color: white;
+  background-color: #fe6982;
+  border: solid 1px #fe6982;
+  border-bottom: solid 9px #cc517b;
+}
+
+.number-tile.five {
+  background-color: #ffffff;
+  border: solid 1px #fec969;
+  border-bottom: solid 9px #fec969;
+}

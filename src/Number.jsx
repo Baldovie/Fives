@@ -1,5 +1,9 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import './Sevens.css';
+import './Fives.css';
+
+const zIncrement = [0];
+var offsetTop;
+var offsetLeft;
 
 /// throttle.ts
 export const throttle = (f) => {
@@ -29,6 +33,7 @@ const useDraggable = ({ onDrag = id } = {}) => {
   // do not store position in useState! even if you useEffect on
   // it and update `transform` CSS property, React still rerenders
   // on every state change, and it LAGS
+  // const position = useRef({ x: 0, y: 0 });
   const position = useRef({ x: 0, y: 0 });
   const ref = useRef();
 
@@ -59,11 +64,29 @@ const useDraggable = ({ onDrag = id } = {}) => {
       // don't forget to disable text selection during drag and drop
       // operations
       e.target.style.userSelect = 'none';
+      e.target.style.position = 'relative';
+      e.target.style.zIndex = getUpdatedIndex();
+      offsetTop = e.target.offsetTop;
+      offsetLeft = e.target.offsetLeft;
+
+      console.log('boundingRect: ');
+      console.log('bottom: ' + e.target.getBoundingClientRect().bottom);
+      console.log('left: ' + e.target.getBoundingClientRect().left);
+      console.log('right: ' + e.target.getBoundingClientRect().right);
+      console.log('top: ' + e.target.getBoundingClientRect().top);
+      console.log('x: ' + e.target.getBoundingClientRect().x);
+      console.log('y: ' + e.target.getBoundingClientRect().y);
+
+      console.log('offset top: ' + e.target.offsetTop);
+      console.log('offset left: ' + e.target.offsetLeft);
+
       setPressed(true);
     };
     elem.addEventListener('mousedown', handleMouseDown);
+    elem.addEventListener('touchstart', handleMouseDown);
     unsubscribe.current = () => {
       elem.removeEventListener('mousedown', handleMouseDown);
+      elem.removeEventListener('touchstart', handleMouseDown);
     };
   }, []);
 
@@ -101,6 +124,7 @@ const useDraggable = ({ onDrag = id } = {}) => {
     });
     const handleMouseUp = (e) => {
       e.target.style.userSelect = 'auto';
+      e.target.style.position = 'relative';
       setPressed(false);
     };
     // subscribe to mousemove and mouseup on document, otherwise you
@@ -108,10 +132,14 @@ const useDraggable = ({ onDrag = id } = {}) => {
     // dragging it forever
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('touchstart', handleMouseMove);
+    document.addEventListener('touchend', handleMouseUp);
     return () => {
       handleMouseMove.cancel();
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('touchstart', handleMouseMove);
+      document.removeEventListener('touchend', handleMouseUp);
     };
     // if `onDrag` wasn't defined with `useCallback`, we'd have to
     // resubscribe to 2 DOM events here, not to say it would mess
@@ -139,8 +167,8 @@ const DraggableComponent = (props) => {
   // getting dragged out of the page
   const handleDrag = useCallback(
     ({ x, y }) => ({
-      x: Math.max(0, x),
-      y: Math.max(0, y),
+      x: Math.max(-100 - offsetLeft, x),
+      y: Math.max(-100 - offsetTop, y),
     }),
     []
   );
@@ -151,10 +179,16 @@ const DraggableComponent = (props) => {
 
   return (
     <div className={props.style} ref={ref}>
-      <div className={props.numberStyle}>{props.value}</div>
+      {props.value}
     </div>
   );
 };
+
+function getUpdatedIndex() {
+  zIncrement[0] = zIncrement[0] + 1;
+  var z = zIncrement[0];
+  return z;
+}
 
 // please, don't `export default`! it messes up autocompletion,
 // usage search and regular text search in IDE!
